@@ -1,6 +1,6 @@
 lesomnia - Less insomnia
 ========================
-`lesomnia` is an ugly hack I made the last minutes before going to bed, deciding I want to wake up the next day with music - played by my lovely laptop which is rests next to me.
+`lesomnia` is an ugly hack I made the last minutes before going to bed, deciding I want to wake up the next day with music - played by my lovely laptop which rests next to me.
 
 Usage (non of the arguments are optional):
 ```
