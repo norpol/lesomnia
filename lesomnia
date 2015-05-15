@@ -1,0 +1,10 @@
+#!/bin/env bash
+set -e;
+VOLUME=$1;
+TIME=$2;
+MUSIC_PATH=$3;
+
+echo "Time: $TIME";
+sudo rtcwake -l -m no -t $(date +%s -d $TIME);
+echo "Volume: $VOLUME Music-Path: $MUSIC_PATH";
+echo "mpv --volume=$VOLUME $MUSIC_PATH" | at $TIME + 1 minute;
