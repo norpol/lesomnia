@@ -1,10 +1,22 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 set -e;
-VOLUME=$1;
+VOLUME=100;
 TIME=$2;
-MUSIC_PATH=$3;
+MUSIC_PATH=$1;
 
-echo "Time: $TIME";
-sudo rtcwake -l -m no -t $(date +%s -d $TIME);
+if [ $(date +%H) -gt 12 ]
+then
+   echo -n "Tomorrow at "
+   RTC_DATE=$(date +%s --date="tomorrow $TIME")
+elif [ 1 ]
+then
+   echo -n "Today at "
+   RTC_DATE=$(date +%s --date="$TIME")
+fi
+
+echo "$TIME";
 echo "Volume: $VOLUME Music-Path: $MUSIC_PATH";
-echo "mpv --volume=$VOLUME $MUSIC_PATH" | at $TIME + 1 minute;
+
+sudo rtcwake -u -m no -t $RTC_DATE;
+echo "export DISPLAY=$DISPLAY; mpv --no-video --no-terminal --no-audio-display --volume=$VOLUME '$MUSIC_PATH'" | at -M "$TIME" + 1 minute;
+

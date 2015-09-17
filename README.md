@@ -4,6 +4,10 @@ lesomnia - Less insomnia
 
 Usage (non of the arguments are optional):
 ```
-./lesomnia 110% 10:30 https://www.youtube.com/watch\?v\=Fow7iUaKrq4
-./lesomnia 100% 04:30 ./path-to-audio.ogg ./path-to-other-track.ogg
+./lesomnia https://www.youtube.com/watch\?v\=Fow7iUaKrq4 09:30
+./lesomnia ~/Music/Artist/Album42/ 10:30
 ```
+
+Issues:
+ - [ ] If it's currently > 12:00, rtcwake will wakeup the next day
+
