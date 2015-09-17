@@ -9,5 +9,5 @@ Usage (non of the arguments are optional):
 ```
 
 Issues:
- - [ ] If it's currently > 12:00, rtcwake will wakeup the next day
+ - [x] If it's currently > 12:00, rtcwake will wakeup the next day
 

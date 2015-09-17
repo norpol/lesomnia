@@ -4,7 +4,7 @@ VOLUME=100;
 TIME=$2;
 MUSIC_PATH=$1;
 
-if [ $(date +%H) -gt 12 ]
+if [ $(date +%s --date="$TIME") -lt $(date +%s --date="now") ]
 then
    echo -n "Tomorrow at "
    RTC_DATE=$(date +%s --date="tomorrow $TIME")
