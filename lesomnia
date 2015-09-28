@@ -6,12 +6,11 @@ MUSIC_PATH=$1;
 
 if [ $(date +%s --date="$TIME") -lt $(date +%s --date="now") ]
 then
-   echo -n "Tomorrow at "
-   RTC_DATE=$(date +%s --date="tomorrow $TIME")
-elif [ 1 ]
-then
-   echo -n "Today at "
-   RTC_DATE=$(date +%s --date="$TIME")
+   echo -n "Tomorrow at ";
+   RTC_DATE=$(date +%s --date="tomorrow $TIME");
+else
+   echo -n "Today at ";
+   RTC_DATE=$(date +%s --date="$TIME");
 fi
 
 echo "$TIME";
