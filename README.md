@@ -13,7 +13,6 @@ You can control mpv via. an ipc-socket. Example:
 $ socat - UNIX-CONNECT:/tmp/mpv.socket
 pause
 {"event":"pause"}
-play
 pause
 {"event":"unpause"}
 ```
