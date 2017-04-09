@@ -2,7 +2,13 @@
 set -e;
 VOLUME=100;
 TIME=$2;
-MUSIC_PATH=$1;
+MUSIC_PATH="$1";
+MPV="mpv"
+MPV_FLAGS="--no-video \
+   --no-terminal \
+   --no-audio-display \
+   --volume=${VOLUME} \
+   --input-unix-socket=/tmp/mpv.socket"
 
 if [ $(date +%s --date="$TIME") -lt $(date +%s --date="now") ]
 then
@@ -17,5 +23,5 @@ echo "$TIME";
 echo "Volume: $VOLUME Music-Path: $MUSIC_PATH";
 
 sudo rtcwake -u -m no -t $RTC_DATE;
-echo "export DISPLAY=$DISPLAY; mpv --no-video --no-terminal --no-audio-display --volume=$VOLUME '$MUSIC_PATH'" | at -M "$TIME" + 1 minute;
+echo "export DISPLAY=$DISPLAY; $MPV $MPV_FLAGS -- $MUSIC_PATH" | at -M "$TIME" + 1 minutes;
 
